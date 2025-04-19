@@ -23,7 +23,7 @@ for (let i = 0; i < grades.length; i++) {
 
 }
 
-// console.log('cumLaud')
+console.log('cumLaud')
 
 // ---- Verwachte uitkomst: 6
 
