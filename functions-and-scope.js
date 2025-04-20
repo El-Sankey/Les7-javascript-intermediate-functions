@@ -14,16 +14,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
-//
-let cumLaude = 0
-for (let i = 0; i < grades.length; i++) {
-    if (grades[i] >= 8) {
-        cumLaude = cumLaude + 1
-    }
 
+function cumLaud1(cijfers) {
+    let cumLaud = 0
+    for (let i = 0; i < cijfers.length; i++) {
+        if (cijfers[i] >= 8) {
+            cumLaud++
+        }
+    }
+    return cumLaud;
 }
 
-console.log('cumLaud')
+
+console.log(cumLaud1(grades));
+
+console.log('===================================')
 
 // ---- Verwachte uitkomst: 6
 
@@ -55,6 +60,7 @@ console.log(cumLaud1(grades));
 console.log(cumLaud1([6, 4, 5]));
 console.log(cumLaud1([8, 9, 4, 6, 10]));
 
+console.log('===================================')
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -81,6 +87,7 @@ console.log(gemiddeldEindCijfer)
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+console.log('===================================')
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -101,17 +108,16 @@ function averageGrade(grades) {
     return gemiddeldCijfer;
 }
 
-console.log(averageGrade(grades));
-console.log(averageGrade([6, 4, 5]));
-console.log(averageGrade([8, 9, 4, 6, 10]))
-
-
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
+console.log(averageGrade(grades));
+console.log(averageGrade([6, 4, 5]));
+console.log(averageGrade([8, 9, 4, 6, 10]))
 
+console.log('===================================')
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
@@ -122,47 +128,51 @@ gemiddeldEindCijfer = 0
 
 
 function averageGrade(grades) {
-    for ( let i = 0; i < grades.length; i++){
-    total = total + grades[i];
-    // total += grades[i]
-    gemiddeldEindCijfer = total / ( i + 1 );
+    for (let i = 0; i < grades.length; i++) {
+        total = total + grades[i];
+        // total += grades[i]
+        gemiddeldEindCijfer = total / (i + 1);
     }
     return gemiddeldEindCijfer;
 }
+
 const gemiddelde = averageGrade(grades)
 console.log(gemiddelde.toFixed(2))
 
-
 /* Bonusopdracht: hoogste cijfer */
 
-                                            /* 3a: Script schrijven  */
+// console.log(hoogtCijfer = Math.max(...grades))
+
+
+/* 3a: Script schrijven  */
 
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
 
 
-console.log(hoogtCijfer = Math.max(...grades))
+console.log('===================================')
 
-// hoogtCijfer = Math.max(...grades);
-let hoogteCijfer;
-for (hoogtCijfer of grades)
-    console.log(hoogteCijfer)
-
+// // hoogtCijfer = Math.max(...grades);
+// let hoogteCijfer;
+// for (hoogtCijfer of grades)
+//     console.log(hoogteCijfer)
 
 
 // * Hoe kan ik iedere waarde van de array langsgaan?
+// * Op welke conditie moet ik checken?
 
-for (let i = 0; i < grades.length; i++) {
+// function hoogsteBehaaldeCijfer() {
+//     let hoogtCijfer = grades[i];
+//     for (let i = 0; i < grades.length; i++) {
+//         {
+//             if (grades[i] > hoogtCijfer) ;
+//         }
+//         return
+//     }
+// }
+// console.log(hoogtCijfer);
 
 
-                    // * Op welke conditie moet ik checken?
-
-    let hoogtCijfer = grades[i];
-
-
-                    // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
-
-    console.log(hoogtCijfer);
-}
+// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
 
 
 // Log het antwoord in de terminal.
@@ -176,14 +186,16 @@ for (let i = 0; i < grades.length; i++) {
 
 
 function highestGrade(grades) {
-    for ( highestGrade of grades) {
-    }
-    return highestGrade(grades)
+    let hoogsteCijfer = 0
+    for (let i = 0; i < grades.length; i++)
+        if (grades[i] > hoogsteCijfer) {
+            hoogsteCijfer = grades[i]
+        }
+
+
+    return hoogsteCijfer
 }
 
-console.log(highestGrade(grades));
-console.log(highestGrade([6, 4, 5]));
-console.log(highestGrade([8, 9, 4, 6, 10]));
 
 // Log het antwoord in de terminal.
 
@@ -191,3 +203,8 @@ console.log(highestGrade([8, 9, 4, 6, 10]));
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+
+console.log(highestGrade(grades));
+console.log(highestGrade([6, 4, 5]));
+console.log(highestGrade([8, 9, 4, 6, 10]));
